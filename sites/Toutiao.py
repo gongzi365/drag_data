@@ -1,6 +1,6 @@
 # _*_ coding: utf-8 _*_
 from service import service_logger
-from site.Drag import Drag
+from Drag import Drag
 from config.Config import Config
 from pyquery import PyQuery as pq
 
