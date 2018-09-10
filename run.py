@@ -1,5 +1,5 @@
 # _*_ coding: utf8 _*_
-from site.Toutiao import Toutiao
+from sites.Toutiao import Toutiao
 
 import json
 
