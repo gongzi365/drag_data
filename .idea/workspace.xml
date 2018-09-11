@@ -2,24 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="863c7c2c-729a-4150-bfa5-1eb6fe406e80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/ArticleList.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/read.me" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/Helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/Config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/Drag.py" beforeDir="false" afterPath="$PROJECT_DIR$/sites/Drag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sites/Toutiao.py" beforeDir="false" afterPath="$PROJECT_DIR$/sites/Toutiao.py" afterDir="false" />
+      <change type="DELETED" beforePath="D:\www\wp\drag_data\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/drag_data$ArticleList.coverage" NAME="ArticleList Coverage Results" MODIFIED="1536659376571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
     <SUITE FILE_PATH="coverage/drag_data$run.coverage" NAME="run Coverage Results" MODIFIED="1536654712634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/drag_data$ArticleList.coverage" NAME="ArticleList Coverage Results" MODIFIED="1536659376571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bin" />
   </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FUSProjectUsageTrigger">
     <session id="-1786649397">
       <usages-collector id="statistics.lifecycle.project">
@@ -62,13 +63,16 @@
       <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="drag_data" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="29" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="29" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
               <folding>
                 <element signature="e#23#56#0" expanded="true" />
               </folding>
@@ -76,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="Toutiao.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/Toutiao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
+            <state vertical-scroll-proportion="0.0">
               <caret line="88" column="14" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="14" />
               <folding>
                 <element signature="e#24#58#0" expanded="true" />
@@ -88,68 +92,52 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmp/drag.log">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="Helper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/Helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="14" />
-              <folding>
-                <marker date="1536655865261" expanded="true" signature="245:999" ph="..." />
-                <marker date="1536655865261" expanded="true" signature="1129:1130" ph="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArticleList.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/ArticleList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
               <folding>
                 <element signature="e#24#50#0" expanded="true" />
-                <marker date="1536661757050" expanded="true" signature="147:809" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmp/973a24e96a45c45899b628cd70d83548.txt">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="56" column="16" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.06506849">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmp/list.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="47" lean-forward="true" selection-end-column="18494" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="Config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/Config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="Drag.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/Drag.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
+            <state vertical-scroll-proportion="0.0">
               <caret line="48" column="19" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="19" />
               <folding>
                 <element signature="e#24#58#0" expanded="true" />
@@ -189,63 +177,69 @@
         <option value="$PROJECT_DIR$/sites/Drag.py" />
         <option value="$PROJECT_DIR$/bin/HandleList.py" />
         <option value="$PROJECT_DIR$/bin/ArticleList.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="签出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
+    <ConfirmationsSetting value="0" id="添加" />
+    <ConfirmationsSetting value="0" id="移除" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-              <item name="sites" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drag_data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drag_data" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drag_data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drag_data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drag_data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,6 +247,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -266,9 +262,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ArticleList">
-    <configuration name="ArticleList" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="drag_data" />
+  <component name="RunManager">
+    <configuration default="false" name="ArticleList" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -279,18 +274,14 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <module name="drag_data" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bin/ArticleList.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+      <method />
     </configuration>
-    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="drag_data" />
+    <configuration default="false" name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -301,27 +292,43 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <module name="drag_data" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+      <method />
     </configuration>
-    <list>
-      <item itemvalue="Python.ArticleList" />
-      <item itemvalue="Python.run" />
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drag_data" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.ArticleList" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run" />
     </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="Python.ArticleList" />
-        <item itemvalue="Python.run" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.run" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ArticleList" />
       </list>
     </recent_temporary>
   </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -330,117 +337,67 @@
       <changelist id="863c7c2c-729a-4150-bfa5-1eb6fe406e80" name="Default Changelist" comment="" />
       <created>1536569109155</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1536569109155</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27193934" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18381241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/read.me">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/SwitchUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/drag.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="29" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="e#23#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/Config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="47" lean-forward="true" selection-end-column="18494" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/973a24e96a45c45899b628cd70d83548.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="56" column="16" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/HandleList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/Toutiao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
+        <state vertical-scroll-proportion="0.0">
           <caret line="88" column="14" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="14" />
           <folding>
             <element signature="e#24#58#0" expanded="true" />
@@ -450,18 +407,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/Helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/ArticleList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
           <folding>
-            <marker date="1536655865261" expanded="true" signature="245:999" ph="..." />
-            <marker date="1536655865261" expanded="true" signature="1129:1130" ph="..." />
+            <element signature="e#24#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="29" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#23#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/Toutiao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="14" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="14" />
+          <folding>
+            <element signature="e#24#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/Helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/ArticleList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/Drag.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
+        <state vertical-scroll-proportion="0.0">
           <caret line="48" column="19" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="19" />
           <folding>
             <element signature="e#24#58#0" expanded="true" />
@@ -469,13 +495,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/read.me">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/SwitchUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="29" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#23#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/Toutiao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="14" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="14" />
+          <folding>
+            <element signature="e#24#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/Helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bin/ArticleList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
           <folding>
             <element signature="e#24#50#0" expanded="true" />
-            <marker date="1536661757050" expanded="true" signature="147:809" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06506849">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/Drag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="19" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
