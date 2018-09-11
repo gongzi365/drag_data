@@ -1,12 +1,9 @@
 # _*_ coding: utf-8 _*_
 from service import service_logger
 from Drag import Drag
-from config.Config import Config
 from pyquery import PyQuery as pq
+from utils.Helper import *
 
-import hashlib
-import os
-import requests
 import re
 import json
 
@@ -24,24 +21,11 @@ class Toutiao(Drag):
 
     # 获取页面
     def _handle(self):
-        m = hashlib.md5()
-        m.update(self.url)
-        file = Config.DIR_PATH + m.hexdigest() + '.txt'
-        service_logger.info(data={"url": self.url, "file": file})
-
-        if os.path.exists(file):
-            with open(file) as f:
-                self.html = f.read()
+        if check_file(self.url):
+            self.html = read_file(self.url)
         else:
-            headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
-                "Referer": self.url
-            }
-            response = requests.get(self.url, headers=headers)
-            service_logger.info(data={"url": self.url, "code": response.status_code, "reason": response.reason})
-            self.html = response.content
-            with open(file, 'wb') as f:
-                f.write(self.html)
+            self.html = get_url_html(self.url)
+            write_file(self.url, self.html)
 
         # 转doc对象
         self.doc = pq(self.html)
@@ -83,7 +67,7 @@ class Toutiao(Drag):
                 content = str.replace("content: ", '')
 
                 imgs = re.findall('&lt;img src&#x3D;&quot;(.*?)&quot;', content, re.S)
-                if len(imgs)>0:
+                if len(imgs) > 0:
                     self.image = imgs[0]
 
         return content
@@ -104,6 +88,17 @@ class Toutiao(Drag):
     # 图片
     def _image(self):
         return self.image
+
+    # 创建时间
+    def _ctime(self):
+        ctime = ''
+        res = re.findall("time: '(.*?)'", self.html, re.S)
+        print res
+        if len(res) > 0:
+            ctime = res[0]
+
+        return ctime
+
 
 
 

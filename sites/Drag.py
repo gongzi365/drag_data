@@ -45,6 +45,12 @@ class Drag(object):
         # 内容
         data['content'] = self._content()
 
+        # 图片
+        data['image'] = self._image()
+
+        # 创建时间
+        data['ctime'] = self._ctime()
+
         return data
 
 
