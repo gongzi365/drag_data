@@ -87,13 +87,18 @@ class Toutiao(Drag):
 
     # 图片
     def _image(self):
-        return self.image
+        image = ''
+        imgs = re.findall('&lt;img src&#x3D;&quot;(.*?)&quot;', self.html, re.S)
+        if len(imgs) > 0:
+            image = imgs[0]
+
+        return image
 
     # 创建时间
     def _ctime(self):
         ctime = ''
         res = re.findall("time: '(.*?)'", self.html, re.S)
-        print res
+        # print res
         if len(res) > 0:
             ctime = res[0]
 

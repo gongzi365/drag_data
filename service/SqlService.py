@@ -8,9 +8,7 @@ import traceback
 class SqlService():
 
     # packet sql
-    TASK_LIST = 'select * from af_task where %s'
-    TASK_UPDATE = 'update af_task set %s where task_id=%s'
-
+    ARTICLE_LIST = 'select * from wp_article where url = "%s"'
 
 
     @staticmethod
