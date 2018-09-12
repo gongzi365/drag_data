@@ -38,20 +38,20 @@ class Drag(object):
             data['parent'] = '默认'
             data['category'] = ''
 
-        # 标签
-        data['tags'] = self._tags()
-
         # 标题
         data['title'] = self._title()
 
         # 内容
         data['content'] = self._content()
 
+        # 标签
+        data['tags'] = self._tags()
+
         # 图片
         data['image'] = self._image()
 
         # 发布时间
-        data['send_time'] = self._ctime()
+        data['send_time'] = self._send_time()
 
         return data
 

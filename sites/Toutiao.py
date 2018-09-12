@@ -1,5 +1,4 @@
 # _*_ coding: utf-8 _*_
-from service import service_logger
 from Drag import Drag
 from pyquery import PyQuery as pq
 from utils.Helper import *
@@ -15,7 +14,6 @@ class Toutiao(Drag):
         self.url = url
         self.html = None
         self.doc = None
-        self.image = ''
 
         Drag.__init__(self, url)
 
@@ -26,9 +24,6 @@ class Toutiao(Drag):
         else:
             self.html = get_url_html(self.url)
             write_file(self.url, self.html)
-
-        # 转doc对象
-        self.doc = pq(self.html)
 
     # 分类
     def _category(self):
@@ -66,10 +61,6 @@ class Toutiao(Drag):
                 str = str.replace("'", '')
                 content = str.replace("content: ", '')
 
-                imgs = re.findall('&lt;img src&#x3D;&quot;(.*?)&quot;', content, re.S)
-                if len(imgs) > 0:
-                    self.image = imgs[0]
-
         return content
 
     # 标签
@@ -94,15 +85,15 @@ class Toutiao(Drag):
 
         return image
 
-    # 创建时间
-    def _ctime(self):
-        ctime = ''
+    # 发布时间
+    def _send_time(self):
+        send_time = ''
         res = re.findall("time: '(.*?)'", self.html, re.S)
         # print res
         if len(res) > 0:
-            ctime = res[0]
+            send_time = res[0]
 
-        return ctime
+        return send_time
 
 
 
