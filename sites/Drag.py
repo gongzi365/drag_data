@@ -30,14 +30,13 @@ class Drag(object):
         cate = self._category()
         if len(cate) == 1:
             data['parent'] = cate[0]
+            data['category'] = ''
         elif len(cate) == 2:
             data['parent'] = cate[0]
             data['category'] = cate[1]
         else:
             data['parent'] = '默认'
-
-        # 标签
-        data['tags'] = self._tags()
+            data['category'] = ''
 
         # 标题
         data['title'] = self._title()
@@ -45,11 +44,14 @@ class Drag(object):
         # 内容
         data['content'] = self._content()
 
+        # 标签
+        data['tags'] = self._tags()
+
         # 图片
         data['image'] = self._image()
 
-        # 创建时间
-        data['ctime'] = self._ctime()
+        # 发布时间
+        data['send_time'] = self._send_time()
 
         return data
 
