@@ -22,7 +22,7 @@ class ArticleModel():
     def insert(data):
         create_ts = int(time.time())
         # 插入的sql
-        insert_article_sql = "insert into wp_article(type, parent, category, " \
+        insert_sql = "insert into wp_article(type, parent, category, " \
                                  " title, content, tags, " \
                                  " image, send_time, url, create_time)" \
                                  " values('{type}', '{parent}', '{category}', '{title}', '{content}', '{tags}', " \
@@ -33,9 +33,9 @@ class ArticleModel():
                     create_time=create_ts)
 
         # 打印sql
-        service_logger.log(insert_article_sql)
+        service_logger.log(insert_sql)
 
-        res = SqlService.api(insert_article_sql, 'execute')
+        res = SqlService.api(insert_sql, 'execute')
         if res is not None:
             return True
 

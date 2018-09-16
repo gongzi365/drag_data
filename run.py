@@ -12,8 +12,8 @@ if __name__ == '__main__':
 
     lists = [
         'https://www.toutiao.com/api/pc/feed/?category=news_tech&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&tadrequire=true&as=A1E51BA9F727820&cp=5B971788C2A03E1&_signature=jaDHLQAA1kTal492w3Aef42gxz',
-        'https://www.toutiao.com/api/pc/feed/?category=news_finance&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&tadrequire=true&as=A1651B997898B9C&cp=5B98E8CBA98CCE1&_signature=sln77gAA6c.lbrO1ZiuOH7JZ-.',
-        'https://new.qq.com/ch/tech/'
+        # 'https://www.toutiao.com/api/pc/feed/?category=news_finance&utm_source=toutiao&widen=1&max_behot_time=0&max_behot_time_tmp=0&tadrequire=true&as=A1651B997898B9C&cp=5B98E8CBA98CCE1&_signature=sln77gAA6c.lbrO1ZiuOH7JZ-.',
+        # 'https://new.qq.com/ch/tech/'
     ]
 
     if len(lists) > 0:

@@ -35,7 +35,7 @@ class Drag(object):
             data['parent'] = cate[0]
             data['category'] = cate[1]
         else:
-            data['parent'] = '默认'
+            data['parent'] = '其它'
             data['category'] = ''
 
         # 标题
