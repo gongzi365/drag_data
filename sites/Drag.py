@@ -42,7 +42,8 @@ class Drag(object):
         data['title'] = self._title()
 
         # 内容
-        data['content'] = self._content()
+        pre = '<strong>【转载】</strong>%s<br /><strong>原文链接：</strong><a href="%s">%s</a>' % (data['title'], self.url, self.url)
+        data['content'] = self._content() + pre
 
         # 标签
         data['tags'] = self._tags()

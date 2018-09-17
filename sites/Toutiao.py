@@ -2,6 +2,7 @@
 from Drag import Drag
 from pyquery import PyQuery as pq
 from utils.Helper import *
+import HTMLParser
 
 import re
 import json
@@ -22,7 +23,9 @@ class Toutiao(Drag):
         if check_file(self.url):
             self.html = read_file(self.url)
         else:
-            self.html = get_url_html(self.url)
+            html = get_url_html(self.url)
+            html_parser = HTMLParser.HTMLParser()
+            self.html = html_parser.unescape(html)
             write_file(self.url, self.html)
 
     # 分类
@@ -79,7 +82,7 @@ class Toutiao(Drag):
     # 图片
     def _image(self):
         image = ''
-        imgs = re.findall('&lt;img src&#x3D;&quot;(.*?)&quot;', self.html, re.S)
+        imgs = re.findall('<img src="(.*?)"', self.html, re.S)
         if len(imgs) > 0:
             image = imgs[0]
 

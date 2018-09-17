@@ -19,9 +19,11 @@ class TermsModel():
 
     @staticmethod
     def insert(name):
+        slug = urllib.quote(name.encode('utf8'))
+
         # 插入的sql
         insert_sql = "insert into wp_terms(name, slug) values('{name}', '{slug}')" \
-                     .format(name=name, slug=name)
+                     .format(name=name, slug=slug)
 
         service_logger.log(insert_sql)
 

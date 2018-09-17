@@ -23,6 +23,8 @@ class PostsModel():
     def insert(data):
         post_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         content = data['content'].replace("'", "\'")
+        # post_name = urllib.quote(data['title'].encode('utf8'))
+        post_name = data['title']
 
         # 插入的sql
         insert_sql = "insert into wp_posts(post_author, post_date, post_date_gmt, " \
@@ -35,7 +37,7 @@ class PostsModel():
                                  " '{post_name}', 'post', '{from_type}', '{from_url}', '{from_ctime}')" \
             .format(post_author=1, post_date=post_date, post_date_gmt=post_date,
                     title=data['title'], content=content,
-                    post_name=data['title'], from_type=data['type'], from_url=data['url'],
+                    post_name=post_name, from_type=data['type'], from_url=data['url'],
                     from_ctime=data['send_time'])
 
         # 打印sql
