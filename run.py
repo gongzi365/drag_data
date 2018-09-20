@@ -2,11 +2,23 @@
 from bin.ToutiaoList import toutiao_list, toutiao_detail
 from bin.TengxunList import tengxun_list, tengxun_detail
 
+# from wordpress_xmlrpc import Client, WordPressPost
+# from wordpress_xmlrpc.methods.posts import GetPosts, NewPost
+# from wordpress_xmlrpc.methods.users import GetUserInfo
+# from wordpress_xmlrpc.methods import posts
+# from wordpress_xmlrpc.methods import taxonomies
+# from wordpress_xmlrpc import WordPressTerm
+# from wordpress_xmlrpc.compat import xmlrpc_client
+# from wordpress_xmlrpc.methods import media, posts
+
 import sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+# wp = Client('http://www.newmedia.me/xmlrpc.php', 'science', 'gongzi7246883')
+# print wp
+# quit(1111)
 
 if __name__ == '__main__':
 

@@ -44,8 +44,11 @@ def toutiao_detail(url, links):
             data = page.get_content()
             if vo['image'] != '':
                 data['image'] = vo['image']
-            print json.dumps(data)
+            # 如果图示：开头要加http
+            if data['image'] != '' and data['image'][0:2] == '//':
+                data['image'] = 'http:' + data['image']
 
+            print json.dumps(data)
             if data['send_time'] == '' or data['title'] == '':
                 continue
 
