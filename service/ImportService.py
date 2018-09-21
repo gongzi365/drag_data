@@ -5,8 +5,8 @@ from model.TermsModel import TermsModel
 from model.PostsModel import PostsModel
 from model.TermTaxonomyModel import TermTaxonomyModel
 from config.Config import Config
-from wordpress_xmlrpc.compat import xmlrpc_client
-from wordpress_xmlrpc.methods import media
+# from wordpress_xmlrpc.compat import xmlrpc_client
+# from wordpress_xmlrpc.methods import media
 
 import urllib2
 import os
@@ -28,7 +28,6 @@ class ImportService():
         if image == '':
             return
 
-        print image
         file = time.strftime("%Y%m%d%H%M%S", time.localtime()) + '_' + str(random.randint(10000, 99999))
         subs = image.split('/')[-1]
         exts = subs.split('.')
@@ -37,28 +36,36 @@ class ImportService():
             ext = exts[-1]
 
         filename = file + '.' + ext
-        filepath = Config.DIR_PATH + filename
+        y = time.strftime("%Y", time.localtime())
+        m = time.strftime("%m", time.localtime())
+        filepath = Config.IMAGE_PATH + '/' + y + '/' + m
+        if os.path.isdir(filepath) == False:
+            os.makedirs(filepath, 0775)
+
+        newfile = filepath + '/' + filename
         response = urllib2.urlopen(image)
         cat_img = response.read()
-        with open(filepath, 'wb') as f:
+        with open(newfile, 'wb') as f:
             f.write(cat_img)
 
-        from run import wp
-        # prepare metadata
-        data = {
-            'name': filename,
-            'type': ext
-        }
-        # read the binary file and let the XMLRPC library encode it into base64
-        with open(filename, 'rb') as img:
-            data['bits'] = xmlrpc_client.Binary(img.read())
+        # 图片日志
+        service_logger.warn(data={"image": image, 'new': y + '/' + m + '/' + filename})
+        return y + '/' + m + '/' + filename
 
-        response = wp.call(media.UploadFile(data))
-        service_logger.info(data=response)
-        if 'id' in response:
-            PostsModel.insert_meta(post_id, response['id'])
-
-        return True
+        # from run import wp
+        # # prepare metadata
+        # data = {
+        #     'name': filename,
+        #     'type': ext
+        # }
+        # # read the binary file and let the XMLRPC library encode it into base64
+        # with open(filename, 'rb') as img:
+        #     data['bits'] = xmlrpc_client.Binary(img.read())
+        #
+        # response = wp.call(media.UploadFile(data))
+        # service_logger.info(data=response)
+        # if 'id' in response:
+        #     PostsModel.insert_meta(post_id, response['id'])
 
     @staticmethod
     def insert_handle(data):
@@ -73,7 +80,8 @@ class ImportService():
 
         # 插入图片
         if data['image'] != '':
-            ImportService.upload_image(data['image'], ID)
+            image = ImportService.upload_image(data['image'], ID)
+            PostsModel.insert_image(image, ID, data['type'], data['url'])
 
         # 检查分类是否存在
         cate = TermsModel.get(data['parent'],  'category')

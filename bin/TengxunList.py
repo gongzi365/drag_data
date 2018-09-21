@@ -1,7 +1,7 @@
 # _*_ coding: utf-8 _*_
 from utils.Helper import *
 from sites.Tengxun import Tengxun
-from model.ArticleModel import ArticleModel
+from service.ImportService import ImportService
 
 import json
 import time
@@ -43,7 +43,7 @@ def tengxun_detail(url, links):
     if len(links) > 0:
         for vo in links:
             # todo 检查链接
-            if ArticleModel.check(vo['link']):
+            if ImportService.check_url(vo['link']):
                 continue
 
             # 延时抓取
@@ -55,20 +55,25 @@ def tengxun_detail(url, links):
             data = page.get_content()
             if vo['image'] != '':
                 data['image'] = vo['image']
+            # 如果图示：开头要加http
+            if data['image'] != '' and data['image'][0:2] == '//':
+                data['image'] = 'http:' + data['image']
+
             print json.dumps(data)
 
             if data['send_time'] == '' or data['title'] == '':
                 continue
 
             # todo 保存数据
-            ArticleModel.insert(data)
+            # ImportService.insert_handle(data)
+            break
 
             # 删除文件
-            delete_file(vo['link'])
+            #delete_file(vo['link'])
 
 
         # 删除列表
-        delete_file(url, ext='.list')
+        # delete_file(url, ext='.list')
 
 
 if __name__ == '__main__':

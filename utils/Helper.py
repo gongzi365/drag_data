@@ -56,3 +56,10 @@ def check_file(url, ext='.txt'):
         return True
     else:
         return False
+
+
+
+
+
+
+

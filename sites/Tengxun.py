@@ -14,10 +14,6 @@ class Tengxun(Drag):
         self.url = url
         self.html = None
         self.doc = None
-        self.cate = []
-        self.title = ''
-        self.send_time = ''
-        self.tags = ''
 
         Drag.__init__(self, url)
 
@@ -32,6 +28,10 @@ class Tengxun(Drag):
 
         # 转doc对象
         self.doc = pq(self.html)
+        self.cate = []
+        self.title = ''
+        self.send_time = ''
+        self.tags = ''
 
     def set_category(self, cate):
 
