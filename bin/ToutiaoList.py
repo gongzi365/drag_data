@@ -16,11 +16,12 @@ def toutiao_list(url=''):
         html = get_url_html(url)
         write_file(url, html, ext='.list')
 
+    #print html
     # 获取文章url
     resu = json.loads(html)
     if 'data' in resu:
         for vo in resu['data']:
-            if "http" not in vo['source_url']:
+            if "http" not in vo['source_url'] and 'image_url' in vo:
                 dt = {
                     'link': 'https://www.toutiao.com' + vo['source_url'],
                     'image': vo['image_url']
@@ -58,7 +59,6 @@ def toutiao_detail(url, links):
 
             # 删除文件
             delete_file(vo['link'])
-
 
         # 删除列表
         delete_file(url, ext='.list')

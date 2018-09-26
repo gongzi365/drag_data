@@ -5,8 +5,6 @@ from model.TermsModel import TermsModel
 from model.PostsModel import PostsModel
 from model.TermTaxonomyModel import TermTaxonomyModel
 from config.Config import Config
-# from wordpress_xmlrpc.compat import xmlrpc_client
-# from wordpress_xmlrpc.methods import media
 
 import urllib2
 import os
@@ -52,26 +50,11 @@ class ImportService():
         service_logger.warn(data={"image": image, 'new': y + '/' + m + '/' + filename})
         return y + '/' + m + '/' + filename
 
-        # from run import wp
-        # # prepare metadata
-        # data = {
-        #     'name': filename,
-        #     'type': ext
-        # }
-        # # read the binary file and let the XMLRPC library encode it into base64
-        # with open(filename, 'rb') as img:
-        #     data['bits'] = xmlrpc_client.Binary(img.read())
-        #
-        # response = wp.call(media.UploadFile(data))
-        # service_logger.info(data=response)
-        # if 'id' in response:
-        #     PostsModel.insert_meta(post_id, response['id'])
-
     @staticmethod
     def insert_handle(data):
-        cates = ['互联网', '技术', 'it', 'IT', 'php', 'python', 'nginx', 'java', 'jquery', 'js', '前端']
+        cates = ['技术', 'it', 'IT', 'php', 'python', 'nginx', 'java', 'jquery', 'js', '前端']
         if data['parent'] in cates:
-            data['parent'] = 'IT技术'
+            data['parent'] = '技术'
 
         # 插入post数据
         ID = PostsModel.insert(data)

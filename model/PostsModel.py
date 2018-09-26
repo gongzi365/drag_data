@@ -4,8 +4,9 @@ from service import service_logger
 from config.Config import Config
 
 import time
-import urllib
+import phpserialize
 import random
+from PIL import Image
 
 class PostsModel():
 
@@ -99,9 +100,22 @@ class PostsModel():
             service_logger.log(insert_meta1_sql)
             SqlService.api(insert_meta1_sql, 'execute')
 
-            insert_meta2_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, '_thumbnail_id', '%s')" % (post_id, res)
+            img = Image.open(Config.IMAGE_PATH + '/' + image)
+            imo = {
+                "width": img.size[0],
+                "height": img.size[1],
+                "file": image,
+                "sizes": []
+            }
+            insert_meta2_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, '_wp_attachment_metadata', '%s')" % (res, phpserialize.dumps(imo))
             service_logger.log(insert_meta2_sql)
             SqlService.api(insert_meta2_sql, 'execute')
+
+            insert_meta3_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, '_thumbnail_id', '%s')" % (post_id, res)
+            service_logger.log(insert_meta3_sql)
+            SqlService.api(insert_meta3_sql, 'execute')
+
+
 
             return res
 

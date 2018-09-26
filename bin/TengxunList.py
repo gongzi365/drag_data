@@ -38,7 +38,12 @@ def tengxun_detail(url, links):
     cate = []
     if 'tech' in url:
         cate = ['科技']
-
+    elif 'finance' in url:
+        cate = ['财经']
+    elif 'edu' in url:
+        cate = ['教育']
+    elif 'internet' in url or 'tcctit' in url or 'ai' in url:
+        cate = ["互联网"]
 
     if len(links) > 0:
         for vo in links:
@@ -60,20 +65,18 @@ def tengxun_detail(url, links):
                 data['image'] = 'http:' + data['image']
 
             print json.dumps(data)
-
             if data['send_time'] == '' or data['title'] == '':
                 continue
 
             # todo 保存数据
-            # ImportService.insert_handle(data)
-            break
+            ImportService.insert_handle(data)
+            #break
 
             # 删除文件
-            #delete_file(vo['link'])
-
+            delete_file(vo['link'])
 
         # 删除列表
-        # delete_file(url, ext='.list')
+        delete_file(url, ext='.list')
 
 
 if __name__ == '__main__':
