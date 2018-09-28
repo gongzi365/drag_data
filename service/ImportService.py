@@ -56,6 +56,9 @@ class ImportService():
         if data['parent'] in cates:
             data['parent'] = '技术'
 
+        if data['parent'] == '其他':
+            data['parent'] = '其它'
+
         # 插入post数据
         ID = PostsModel.insert(data)
         if ID is False:

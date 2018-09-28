@@ -42,6 +42,10 @@ def tengxun_detail(url, links):
         cate = ['财经']
     elif 'edu' in url:
         cate = ['教育']
+    elif 'house' in url:
+        cate = ['房产']
+    elif 'visit' in url:
+        cate = ['旅游']
     elif 'internet' in url or 'tcctit' in url or 'ai' in url:
         cate = ["互联网"]
 
