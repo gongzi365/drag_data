@@ -13,7 +13,8 @@ def toutiao_list(url=''):
     if check_file(url):
         html = read_file(url, ext='.list')
     else:
-        html = get_url_html(url)
+        cookie = 'UM_distinctid=165e23b8bd863a-02b6bf44638b1e-541b371f-100200-165e23b8bd9812; tt_webid=6601789411817768455; WEATHER_CITY=%E5%8C%97%E4%BA%AC; uuid="w:be3b8ee49353488b825ded5ccbcf16b3"; CNZZDATA1259612802=1933104973-1537094542-%7C1539087142; __tasessionId=qgp2gufge1539087164145; csrftoken=afc50bb8fb759393b3c1da8340182cd6; tt_webid=6601789411817768455'
+        html = get_url_html(url, cookie)
         write_file(url, html, ext='.list')
 
     #print html
@@ -21,17 +22,34 @@ def toutiao_list(url=''):
     resu = json.loads(html)
     if 'data' in resu:
         for vo in resu['data']:
-            if "http" not in vo['source_url'] and 'image_url' in vo:
-                dt = {
-                    'link': 'https://www.toutiao.com' + vo['source_url'],
-                    'image': vo['image_url']
-                }
-                data.append(dt)
+            if 'item_source_url' in vo and 'media_avatar_url' in vo:
+                if "http" not in vo['item_source_url']:
+                    dt = {
+                        'link': 'https://www.toutiao.com' + vo['item_source_url'],
+                        'image': vo['media_avatar_url']
+                    }
+                    data.append(dt)
+            elif 'source_url' in vo and 'image_url' in vo:
+                if "http" not in vo['source_url']:
+                    dt = {
+                        'link': 'https://www.toutiao.com' + vo['source_url'],
+                        'image': vo['image_url']
+                    }
+                    data.append(dt)
 
     return data
 
 def toutiao_detail(url, links):
     print json.dumps(links)
+
+    cate = []
+    if 'news_baby' in url:
+        cate = ['教育']
+    elif 'news_travel' in url:
+        cate = ['旅游']
+    elif '人工智能' in url or '大数据' in url:
+        cate = ['技术']
+
     if len(links) > 0:
         for vo in links:
             # todo 检查链接
@@ -42,6 +60,10 @@ def toutiao_detail(url, links):
             time.sleep(5)
 
             page = Toutiao(vo['link'])
+            # 补全数据
+            if len(cate) > 0:
+                page.set_category(cate)
+
             data = page.get_content()
             if vo['image'] != '':
                 data['image'] = vo['image']
@@ -55,7 +77,7 @@ def toutiao_detail(url, links):
 
             # todo 保存数据
             ImportService.insert_handle(data)
-            #break
+            # break
 
             # 删除文件
             delete_file(vo['link'])

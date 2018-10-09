@@ -12,11 +12,14 @@ def get_current_timestamp():
     return int(time.time())
 
 # 获取网页内容
-def get_url_html(url):
+def get_url_html(url, cookie=None):
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
-        "Referer": url
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36",
+        "Referer": url,
     }
+    if cookie is not None:
+        headers['cookie'] = cookie
+
     response = requests.get(url, headers=headers)
     service_logger.info(data={"url": url, "code": response.status_code, "reason": response.reason})
     return response.content

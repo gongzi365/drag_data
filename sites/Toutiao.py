@@ -27,9 +27,16 @@ class Toutiao(Drag):
             html_parser = HTMLParser.HTMLParser()
             self.html = html_parser.unescape(html)
             write_file(self.url, self.html)
+        self.cate = []
+
+    def set_category(self, cate):
+        self.cate = cate
 
     # 分类
     def _category(self):
+        if len(self.cate) > 0:
+            return self.cate
+
         cate = []
         res = re.findall("chineseTag: '(.*?)'", self.html, re.S)
         # print res
