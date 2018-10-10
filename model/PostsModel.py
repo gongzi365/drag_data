@@ -49,7 +49,7 @@ class PostsModel():
         res = SqlService.api(insert_sql, 'execute')
         if res is not None:
             # 插入浏览数
-            views_count = random.randint(1, 200)
+            views_count = random.randint(1, 80)
             insert_meta_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, 'post_views_count', '%s')" % (res, views_count)
             service_logger.log(insert_meta_sql)
             SqlService.api(insert_meta_sql, 'execute')
