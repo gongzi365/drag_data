@@ -76,14 +76,14 @@ def toutiao_detail(url, links):
                 continue
 
             # todo 保存数据
-            ImportService.insert_handle(data)
+            #ImportService.insert_handle(data)
             # break
 
             # 删除文件
-            delete_file(vo['link'])
+            #delete_file(vo['link'])
 
         # 删除列表
-        delete_file(url, ext='.list')
+        #delete_file(url, ext='.list')
 
 
 if __name__ == '__main__':
