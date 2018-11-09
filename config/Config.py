@@ -27,10 +27,6 @@ class Config:
     # ----- 图片目录 ----- #
     # IMAGE_PATH = 'D:/sharedev/wp.anfeng.me/wp-content/uploads'
     # BASE_URL = 'http://wp.anfeng.me/'
-<<<<<<< HEAD
     IMAGE_PATH = '/home/www/newmedia/wp-content/uploads'
-=======
-    IMAGE_PATH = 'D:/www/wp/newmedia/wp-content/uploads'
->>>>>>> de2279be793f31160d899e4853d1297397cea176
     BASE_URL = 'http://www.media88.cn/'
 
