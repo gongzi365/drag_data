@@ -23,14 +23,14 @@ def toutiao_list(url=''):
     if 'data' in resu:
         for vo in resu['data']:
             if 'item_source_url' in vo and 'media_avatar_url' in vo:
-                if "http" not in vo['item_source_url']:
+                if "http" not in vo['item_source_url'] and 'local//' not in vo['item_source_url']:
                     dt = {
                         'link': 'https://www.toutiao.com' + vo['item_source_url'],
                         'image': vo['media_avatar_url']
                     }
                     data.append(dt)
             elif 'source_url' in vo and 'image_url' in vo:
-                if "http" not in vo['source_url']:
+                if "http" not in vo['source_url'] and 'local//' not in vo['item_source_url']:
                     dt = {
                         'link': 'https://www.toutiao.com' + vo['source_url'],
                         'image': vo['image_url']

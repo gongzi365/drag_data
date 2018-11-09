@@ -28,5 +28,5 @@ class Config:
     # IMAGE_PATH = 'D:/sharedev/wp.anfeng.me/wp-content/uploads'
     # BASE_URL = 'http://wp.anfeng.me/'
     IMAGE_PATH = 'D:/www/wp/newmedia/wp-content/uploads'
-    BASE_URL = 'http://www.newmedia.me/'
+    BASE_URL = 'http://www.media88.cn/'
 
