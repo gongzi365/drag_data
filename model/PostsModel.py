@@ -3,6 +3,7 @@ from service.SqlService import SqlService
 from service import service_logger
 from config.Config import Config
 
+import MySQLdb
 import time
 import phpserialize
 import random
@@ -25,8 +26,8 @@ class PostsModel():
     @staticmethod
     def insert(data):
         post_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        content = data['content'].replace("'", "\'")
-        # post_name = urllib.quote(data['title'].encode('utf8'))
+        # content = data['content'].replace("'", "\'")
+        content = MySQLdb.escape_string(data['content'])
         post_name = data['title']
 
         # 插入的sql

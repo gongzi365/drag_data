@@ -87,6 +87,11 @@ class Tengxun(Drag):
 
         return self.send_time
 
+    # 其它数据
+    def _others(self):
+
+        return []
+
 
 
 

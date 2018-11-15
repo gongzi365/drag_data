@@ -12,7 +12,7 @@ import re
 def tengxun_list(url=''):
     data = []
 
-    if check_file(url):
+    if check_file(url, ext='.list'):
         html = read_file(url, ext='.list')
     else:
         html = get_url_html(url)
@@ -74,14 +74,13 @@ def tengxun_detail(url, links):
 
             # todo 保存数据
             ImportService.insert_handle(data)
-            #break
+            # break
 
             # 删除文件
             delete_file(vo['link'])
 
         # 删除列表
         delete_file(url, ext='.list')
-
 
 if __name__ == '__main__':
     url = 'https://new.qq.com/ch/tech/'

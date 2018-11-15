@@ -10,7 +10,7 @@ import time
 def toutiao_list(url=''):
     data = []
 
-    if check_file(url):
+    if check_file(url, ext='.list'):
         html = read_file(url, ext='.list')
     else:
         cookie = 'UM_distinctid=165e23b8bd863a-02b6bf44638b1e-541b371f-100200-165e23b8bd9812; tt_webid=6601789411817768455; WEATHER_CITY=%E5%8C%97%E4%BA%AC; uuid="w:be3b8ee49353488b825ded5ccbcf16b3"; CNZZDATA1259612802=1933104973-1537094542-%7C1539087142; __tasessionId=qgp2gufge1539087164145; csrftoken=afc50bb8fb759393b3c1da8340182cd6; tt_webid=6601789411817768455'

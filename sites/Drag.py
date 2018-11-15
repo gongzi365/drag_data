@@ -54,6 +54,9 @@ class Drag(object):
         # 发布时间
         data['send_time'] = self._send_time()
 
+        # 其它参数
+        data['others'] = self._others()
+
         return data
 
 

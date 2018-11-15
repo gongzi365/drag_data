@@ -105,6 +105,11 @@ class Toutiao(Drag):
 
         return send_time
 
+    # 其它数据
+    def _others(self):
+
+        return []
+
 
 
 

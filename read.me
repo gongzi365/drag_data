@@ -1,4 +1,6 @@
 http://junyiseo.com/python/325.html
 
+pip install python-resize-image
+
 ALTER TABLE `wp_posts` ADD COLUMN `from_type` VARCHAR(32) DEFAULT '' NULL COMMENT '来源类型' AFTER `comment_count`, ADD COLUMN `from_url` VARCHAR(128) DEFAULT '' NULL COMMENT '来源url' AFTER `from_type`, ADD COLUMN `from_ctime` DATETIME DEFAULT '0000-00-00 00:00:00' NULL COMMENT '来源创建时间' AFTER `from_url`;
 

@@ -5,6 +5,8 @@ from model.TermsModel import TermsModel
 from model.PostsModel import PostsModel
 from model.TermTaxonomyModel import TermTaxonomyModel
 from config.Config import Config
+from resizeimage import resizeimage
+from PIL import Image
 
 import urllib2
 import os
@@ -22,7 +24,7 @@ class ImportService():
         return False
 
     @staticmethod
-    def upload_image(image, post_id):
+    def upload_image(image, iscut=False):
         if image == '':
             return
 
@@ -41,13 +43,31 @@ class ImportService():
             os.makedirs(filepath, 0775)
 
         newfile = filepath + '/' + filename
+        oldfile = Config.DIR_PATH + filename
+
+        # 存储原图
         response = urllib2.urlopen(image)
         cat_img = response.read()
-        with open(newfile, 'wb') as f:
+        with open(oldfile, 'wb') as f:
             f.write(cat_img)
 
+        if iscut:
+            # 存储裁剪图
+            with open(oldfile, 'rb') as f:
+                with Image.open(f) as img:
+                    cover = resizeimage.resize_cover(img, [300, 200])
+                    cover.save(newfile, img.format)
+        else:
+            # 存储新的图片
+            with open(newfile, 'wb') as f:
+                f.write(cat_img)
+
         # 图片日志
-        service_logger.warn(data={"image": image, 'new': y + '/' + m + '/' + filename})
+        service_logger.warn(data={"image": image, 'old': oldfile, 'new': newfile})
+
+        # 删除图片
+        os.remove(oldfile)
+
         return y + '/' + m + '/' + filename
 
     @staticmethod
@@ -63,10 +83,11 @@ class ImportService():
         ID = PostsModel.insert(data)
         if ID is False:
             service_logger.log('插入失败'+data['url'])
+            return False
 
         # 插入图片
         if data['image'] != '':
-            image = ImportService.upload_image(data['image'], ID)
+            image = ImportService.upload_image(data['image'], iscut=True)
             PostsModel.insert_image(image, ID, data['type'], data['url'])
 
         # 检查分类是否存在
