@@ -55,19 +55,19 @@ class Dytt(Drag):
         content = ''
         resu = re.findall('<div id="Zoom">(.*?)</div>', self.html, re.S)
         if len(resu) > 0:
-            content = resu[0]
-            content = content.replace('<script language=javascript src="/js1/750.js"></script>', '')
+            content = resu[0].strip()
             resu1 = re.findall('发布时间：(.*?)\s', content, re.S)
             if len(resu1) > 0:
                 content = content.replace('发布时间：'+resu1[0], '')
                 content = content.strip()
 
+            content = content.replace('<script language=javascript src="/js1/750.js"></script>', '')
             content = content.replace('www.ygdy8.com', 'v.media88.cn')
-            resu2 = re.findall('<center>(.*?)</center>', content, re.S)
-            # 删除多余的链接
-            if len(resu2) > 0:
-                for vo in resu2:
-                    content = content.replace(vo, '')
+
+            index = content.find('<br><center>')
+            length = len(content)
+            if index > 0:
+                content = content[0:index]
 
         return content
 

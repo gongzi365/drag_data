@@ -26,7 +26,7 @@ class ImportService():
         return False
 
     @staticmethod
-    def upload_image(image, iscut=False):
+    def upload_image(image, iscut=False, w=300, h=200):
         if image == '':
             return
 
@@ -58,7 +58,7 @@ class ImportService():
             # 存储裁剪图
             with open(oldfile, 'rb') as f:
                 with Image.open(f) as img:
-                    cover = resizeimage.resize_cover(img, [300, 200])
+                    cover = resizeimage.resize_cover(img, [w, h])
                     cover.save(newfile, img.format)
         else:
             # 存储新的图片
@@ -83,17 +83,21 @@ class ImportService():
             data['parent'] = '其它'
 
         # 插入post数据
-        if type == 'article':
-            ID = PostsModel.insert(data)
-        elif type == 'video':
+        if type == 'video':
             ID = PostsModel.insert_video(data)
+            width = 480
+            height = 320
+        else:
+            ID = PostsModel.insert(data)
+            width = 300
+            height = 200
         if ID is False:
             service_logger.log('插入失败'+data['url'])
             return False
 
         # 插入图片
         if data['image'] != '':
-            image = ImportService.upload_image(data['image'], iscut=True)
+            image = ImportService.upload_image(data['image'], iscut=True, w=width, h=height)
             PostsModel.insert_image(image, ID, data['type'], data['url'])
 
         # 检查分类是否存在

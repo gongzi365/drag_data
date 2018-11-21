@@ -67,7 +67,7 @@ def dytt_detail(url, links):
 
             # todo 保存数据
             ImportService.insert_handle(data, 'video')
-            # break
+            break
 
             # 删除文件
             delete_file(vo['link'])
