@@ -60,6 +60,52 @@ class PostsModel():
         return False
 
     @staticmethod
+    def insert_video(data):
+        post_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        content = MySQLdb.escape_string(data['content'])
+        post_name = data['title']
+        score = data['others']['score']
+        if score == '':
+            score = 0
+        else:
+            score = float(score)
+
+        # 插入的sql
+        insert_sql = "insert into wp_posts(post_author, post_date, post_date_gmt, " \
+                                 " post_excerpt, to_ping, pinged, post_content_filtered, " \
+                                 " post_title, post_content, post_status,comment_status, ping_status, " \
+                                 " post_name, post_type, from_type, from_url, from_ctime," \
+                                 " year, director, movie_duration, file_size, show_font," \
+                                 " score, movies_name, alias_name, language, country, actors)" \
+                                 " values('1', '{post_date}', '{post_date_gmt}'," \
+                                 " '', '', '', '', " \
+                                 " '{title}', '{content}', 'publish', 'open', 'open', " \
+                                 " '{post_name}', 'post', '{from_type}', '{from_url}', '{from_ctime}', " \
+                                 " '{year}', '{director}', '{movie_duration}', '{file_size}', '{show_font}', " \
+                                 " '{score}', '{movies_name}', '{alias_name}', '{language}', '{country}', '{actors}')" \
+            .format(post_author=1, post_date=post_date, post_date_gmt=post_date,
+                    title=data['title'], content=content,
+                    post_name=post_name, from_type=data['type'], from_url=data['url'], from_ctime=data['send_time'],
+                    year=int(data['others']['year']), director=data['others']['director'], movie_duration=data['others']['movie_duration'], file_size=data['others']['file_size'],
+                    show_font=data['others']['font'], score=score,  movies_name=data['others']['name'], alias_name=data['others']['name_cn'],
+                    language=data['others']['language'], country=data['others']['country'], actors=data['others']['actors'])
+
+        # 打印sql
+        # service_logger.log(insert_sql)
+
+        res = SqlService.api(insert_sql, 'execute')
+        if res is not None:
+            # 插入浏览数
+            views_count = random.randint(1, 80)
+            insert_meta_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, 'post_views_count', '%s')" % (res, views_count)
+            service_logger.log(insert_meta_sql)
+            SqlService.api(insert_meta_sql, 'execute')
+
+            return res
+
+        return False
+
+    @staticmethod
     def insert_meta(post_id, attachment_id):
         insert_meta_sql = "insert into wp_postmeta(post_id, meta_key, meta_value) value (%s, '_thumbnail_id', '%s')" % (post_id, attachment_id)
         service_logger.log(insert_meta_sql)

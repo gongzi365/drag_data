@@ -66,18 +66,19 @@ def dytt_detail(url, links):
                 continue
 
             # todo 保存数据
-            #ImportService.insert_handle(data)
+            ImportService.insert_handle(data, 'video')
             # break
 
             # 删除文件
-            #delete_file(vo['link'])
+            delete_file(vo['link'])
 
         # 删除列表
         #delete_file(url, ext='.list')
 
 
 if __name__ == '__main__':
-    url = 'http://www.ygdy8.net/html/gndy/china/index.html'
+    # url = 'http://www.ygdy8.net/html/gndy/china/index.html'
+    url = 'http://www.ygdy8.net/html/gndy/oumei/index.html'
     list = dytt_list(url)
 
     # 打印解析数据

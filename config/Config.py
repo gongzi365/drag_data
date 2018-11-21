@@ -15,6 +15,7 @@ class Config:
     # SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@192.168.1.248:3306/anfeng_packet?charset=utf8'
     # SQLALCHEMY_DATABASE_URI = 'mysql://root:@127.0.0.1:3306/wp_test?charset=utf8'
     SQLALCHEMY_DATABASE_URI = 'mysql://root:@127.0.0.1:3306/new_media?charset=utf8'
+    # SQLALCHEMY_DATABASE_URI = 'mysql://root:@127.0.0.1:3306/video_media?charset=utf8'
 
     # ----- Mysql 调试输出开关 ----- #
     MYSQL_DEBUG = False
@@ -32,4 +33,6 @@ class Config:
     # IMAGE_PATH = '/home/www/newmedia/wp-content/uploads'
     # IMAGE_PATH = 'D:/www/wp/newmedia/wp-content/uploads'
     # BASE_URL = 'http://www.media88.cn/'
+    # IMAGE_PATH = 'D:/www/wp/videomedia/wp-content/uploads'
+    # BASE_URL = 'http://v.media88.cn/'
 

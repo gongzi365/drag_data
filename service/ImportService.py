@@ -9,6 +9,8 @@ from resizeimage import resizeimage
 from PIL import Image
 
 import urllib2
+import requests
+
 import os
 import time
 import random
@@ -46,9 +48,10 @@ class ImportService():
         oldfile = Config.DIR_PATH + filename
 
         # 存储原图
-        response = urllib2.urlopen(image)
-        cat_img = response.read()
-        with open(oldfile, 'wb') as f:
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"}
+        response = requests.get(image, headers=headers)
+        cat_img = response.content
+        with open(oldfile, "wb") as f:
             f.write(cat_img)
 
         if iscut:
@@ -71,7 +74,7 @@ class ImportService():
         return y + '/' + m + '/' + filename
 
     @staticmethod
-    def insert_handle(data):
+    def insert_handle(data, type='article'):
         cates = ['技术', 'it', 'IT', 'php', 'python', 'nginx', 'java', 'jquery', 'js', '前端']
         if data['parent'] in cates:
             data['parent'] = '技术'
@@ -80,7 +83,10 @@ class ImportService():
             data['parent'] = '其它'
 
         # 插入post数据
-        ID = PostsModel.insert(data)
+        if type == 'article':
+            ID = PostsModel.insert(data)
+        elif type == 'video':
+            ID = PostsModel.insert_video(data)
         if ID is False:
             service_logger.log('插入失败'+data['url'])
             return False

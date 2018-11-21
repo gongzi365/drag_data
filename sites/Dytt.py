@@ -53,20 +53,33 @@ class Dytt(Drag):
     # 内容
     def _content(self):
         content = ''
-        resu = re.findall('<div class="co_content8">(.*?)</div>', self.html, re.S)
+        resu = re.findall('<div id="Zoom">(.*?)</div>', self.html, re.S)
         if len(resu) > 0:
             content = resu[0]
             content = content.replace('<script language=javascript src="/js1/750.js"></script>', '')
+            resu1 = re.findall('发布时间：(.*?)\s', content, re.S)
+            if len(resu1) > 0:
+                content = content.replace('发布时间：'+resu1[0], '')
+                content = content.strip()
+
+            content = content.replace('www.ygdy8.com', 'v.media88.cn')
+            resu2 = re.findall('<center>(.*?)</center>', content, re.S)
+            # 删除多余的链接
+            if len(resu2) > 0:
+                for vo in resu2:
+                    content = content.replace(vo, '')
 
         return content
 
     # 标签
     def _tags(self):
         tag = ''
-        resu = re.findall('◎类　　别\s(.*?)<br />', self.html, re.S)
+        resu = re.findall('◎类　　别(.*?)<br />', self.html, re.S)
         if len(resu) > 0:
             tag = resu[0].strip()
+            tag = tag.replace('　', '')
             tag = tag.replace('/', ',')
+            tag = tag.replace('\\', ',')
 
         return tag
 
