@@ -8,6 +8,8 @@ import json
 import time
 import re
 import sys
+import random
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -60,34 +62,44 @@ def dytt_detail(url, links):
             page = Dytt(vo['link'])
             # 补全数据
             page.set_category(cate)
-            data = page.get_content()
+            data = page.get_content(flag=False)
             print json.dumps(data)
             if data['send_time'] == '' or data['title'] == '':
                 continue
 
             # todo 保存数据
             ImportService.insert_handle(data, 'video')
-            break
+            # break
 
             # 删除文件
             delete_file(vo['link'])
 
         # 删除列表
-        #delete_file(url, ext='.list')
-
+        delete_file(url, ext='.list')
 
 if __name__ == '__main__':
-    # url = 'http://www.ygdy8.net/html/gndy/china/index.html'
-    url = 'http://www.ygdy8.net/html/gndy/oumei/index.html'
-    list = dytt_list(url)
+    i = 1
+    # total = 203
+    total = 2
+    while i<total:
+        i = i+1
+        url = 'http://www.ygdy8.net/html/gndy/china/index.html'
+        # url = 'http://www.ygdy8.net/html/gndy/oumei/index.html'
+        # url = 'http://www.ygdy8.net/html/gndy/oumei/list_7_%s.html' % (i, )
+        print url
+        list = dytt_list(url)
+        tm = random.randint(5, 10)
+        time.sleep(tm)
 
-    # 打印解析数据
-    print json.dumps(list)
+        # 打印解析数据
+        print json.dumps(list)
 
-    if len(list) > 0:
-        for vo in list:
-            dytt_detail(url, [{"cate": vo['cate'], "link": vo['link']}])
-            break
+        if len(list) > 0:
+            for vo in list:
+                dytt_detail(url, [{"cate": vo['cate'], "link": vo['link']}])
+                # break
+
+
 
 
 

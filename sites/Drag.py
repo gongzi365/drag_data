@@ -19,7 +19,7 @@ class Drag(object):
         except Exception, err:
             service_logger.error("task-exception", {"msg": traceback.format_exc(), "url": self.url})
 
-    def get_content(self):
+    def get_content(self, flag=True):
         data = {
             'platform': self.platform,
             'type': self.type,
@@ -43,7 +43,10 @@ class Drag(object):
 
         # 内容
         pre = '<strong>【转载】</strong>%s<br /><strong>原文链接：</strong><a href="%s">%s</a>' % (data['title'], self.url, self.url)
-        data['content'] = self._content() + pre
+        if flag:
+            data['content'] = self._content() + pre
+        else:
+            data['content'] = self._content()
 
         # 标签
         data['tags'] = self._tags()
