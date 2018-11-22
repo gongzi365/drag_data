@@ -21,7 +21,7 @@ def get_url_html(url, cookie=None):
         headers['cookie'] = cookie
 
     response = requests.get(url, headers=headers)
-    service_logger.info(data={"url": url, "code": response.status_code, "reason": response.reason})
+    service_logger.info(data={"url": url, "code": response.status_code, "reason": response.reason, 'encoding': response.encoding})
     return response.content
 
 # 读文件

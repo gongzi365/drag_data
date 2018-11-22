@@ -5,6 +5,7 @@ from service.ImportService import ImportService
 
 import json
 import time
+import random
 
 # 头条链接解析
 def toutiao_list(url=''):
@@ -57,7 +58,8 @@ def toutiao_detail(url, links):
                 continue
 
             # 延时抓取
-            time.sleep(5)
+            tm = random.randint(3, 6)
+            time.sleep(tm)
 
             page = Toutiao(vo['link'])
             # 补全数据

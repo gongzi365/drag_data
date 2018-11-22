@@ -80,6 +80,7 @@ class Dytt(Drag):
             tag = tag.replace('　', '')
             tag = tag.replace('/', ',')
             tag = tag.replace('\\', ',')
+            tag = tag.strip()
 
         return tag
 

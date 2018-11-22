@@ -6,6 +6,7 @@ from service.ImportService import ImportService
 import json
 import time
 import re
+import random
 
 
 # 链接解析
@@ -56,7 +57,8 @@ def tengxun_detail(url, links):
                 continue
 
             # 延时抓取
-            time.sleep(5)
+            tm = random.randint(3, 6)
+            time.sleep(tm)
 
             page = Tengxun(vo['link'])
             # 补全数据

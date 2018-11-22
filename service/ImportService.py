@@ -120,6 +120,7 @@ class ImportService():
         if data['tags'] != '':
             tags = data['tags'].split(',')
             for tag in tags:
+                tag = tag.strip()
                 resu = TermsModel.get(tag,  'post_tag')
                 if resu is False:
                     resu = {}
