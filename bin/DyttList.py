@@ -24,6 +24,9 @@ def dytt_list(url=''):
         html = get_url_html(url)
         write_file(url, html, ext='.list')
 
+    if html == '':
+        return data
+
     doc = pq(html)
     tables = doc('.co_content8 table').items()
     for tb in tables:
