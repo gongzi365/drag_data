@@ -24,8 +24,11 @@ class Dytt(Drag):
             self.html = read_file(self.url)
         else:
             html = get_url_html(self.url)
-            self.html = html.decode('gb18030', 'ignore').encode('utf-8', 'ignore')
-            write_file(self.url, self.html)
+            if html != '':
+                self.html = html.decode('gb18030', 'ignore').encode('utf-8', 'ignore')
+                write_file(self.url, self.html)
+            else:
+                self.html = ''
 
         # 转doc对象
         self.doc = pq(self.html)

@@ -22,7 +22,7 @@ def get_url_html(url, cookie=None):
         headers['cookie'] = cookie
 
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        response = requests.get(url, headers=headers, timeout=25)
         service_logger.info(data={"url": url, "code": response.status_code, "reason": response.reason, "encoding": response.encoding})
         return response.content
     except ReadTimeout:

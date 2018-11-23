@@ -63,7 +63,9 @@ class PostsModel():
     def insert_video(data):
         post_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         content = MySQLdb.escape_string(data['content'])
-        post_name = data['title']
+        post_name = MySQLdb.escape_string(data['title'])
+        movies_name = MySQLdb.escape_string(data['others']['name'])
+        alias_name = MySQLdb.escape_string(data['others']['name_cn'])
         score = data['others']['score']
         if score == '':
             score = 0
@@ -87,7 +89,7 @@ class PostsModel():
                     title=data['title'], content=content,
                     post_name=post_name, from_type=data['type'], from_url=data['url'], from_ctime=data['send_time'],
                     year=int(data['others']['year']), director=data['others']['director'], movie_duration=data['others']['movie_duration'], file_size=data['others']['file_size'],
-                    show_font=data['others']['font'], score=score,  movies_name=data['others']['name'], alias_name=data['others']['name_cn'],
+                    show_font=data['others']['font'], score=score,  movies_name=movies_name, alias_name=alias_name,
                     language=data['others']['language'], country=data['others']['country'], actors=data['others']['actors'])
 
         # 打印sql

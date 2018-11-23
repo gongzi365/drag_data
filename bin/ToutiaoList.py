@@ -2,10 +2,12 @@
 from utils.Helper import *
 from sites.Toutiao import Toutiao
 from service.ImportService import ImportService
+from service import service_logger
 
 import json
 import time
 import random
+import traceback
 
 # 头条链接解析
 def toutiao_list(url=''):
@@ -58,28 +60,31 @@ def toutiao_detail(url, links):
                 continue
 
             # 延时抓取
-            tm = random.randint(3, 6)
+            tm = random.randint(4, 10)
             time.sleep(tm)
 
-            page = Toutiao(vo['link'])
-            # 补全数据
-            if len(cate) > 0:
-                page.set_category(cate)
+            try:
+                page = Toutiao(vo['link'])
+                # 补全数据
+                if len(cate) > 0:
+                    page.set_category(cate)
 
-            data = page.get_content()
-            if vo['image'] != '':
-                data['image'] = vo['image']
-            # 如果图示：开头要加http
-            if data['image'] != '' and data['image'][0:2] == '//':
-                data['image'] = 'http:' + data['image']
+                data = page.get_content()
+                if vo['image'] != '':
+                    data['image'] = vo['image']
+                # 如果图示：开头要加http
+                if data['image'] != '' and data['image'][0:2] == '//':
+                    data['image'] = 'http:' + data['image']
 
-            print json.dumps(data)
-            if data['send_time'] == '' or data['title'] == '':
-                continue
+                print json.dumps(data)
+                if data['send_time'] == '' or data['title'] == '':
+                    continue
 
-            # todo 保存数据
-            ImportService.insert_handle(data)
-            # break
+                # todo 保存数据
+                ImportService.insert_handle(data)
+                # break
+            except Exception, err:
+                service_logger.error("toutiao-exception", {"msg": traceback.format_exc(), "link": vo['link']})
 
             # 删除文件
             delete_file(vo['link'])

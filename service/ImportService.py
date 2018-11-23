@@ -14,6 +14,7 @@ import requests
 import os
 import time
 import random
+import traceback
 
 class ImportService():
 
@@ -47,12 +48,20 @@ class ImportService():
         newfile = filepath + '/' + filename
         oldfile = Config.DIR_PATH + filename
 
-        # 存储原图
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"}
-        response = requests.get(image, headers=headers)
-        cat_img = response.content
-        with open(oldfile, "wb") as f:
-            f.write(cat_img)
+        try:
+            # 存储原图
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"}
+            response = requests.get(image, headers=headers)
+            if response.status_code != 200:
+                return ''
+            if '<!DOCTYPE' in response.content or '<iframe' in response.content:
+                return ''
+            cat_img = response.content
+            with open(oldfile, "wb") as f:
+                f.write(cat_img)
+        except Exception, err:
+            service_logger.error("task-exception", {"msg": traceback.format_exc(), "image": image})
+            return ''
 
         if iscut:
             # 存储裁剪图
@@ -84,20 +93,33 @@ class ImportService():
 
         # 插入post数据
         if type == 'video':
-            ID = PostsModel.insert_video(data)
             width = 480
             height = 320
         else:
-            ID = PostsModel.insert(data)
             width = 300
             height = 200
+
+        # 下载图片
+        image = ''
+        if data['image'] != '':
+            image = ImportService.upload_image(data['image'], iscut=True, w=width, h=height)
+            if type == 'video' and image == '':
+                # image = '2018/11/carousel_bg-e1542977701970.png'
+                service_logger.log('图片下载失败：'+data['image'])
+                return False
+
+        # 插入post数据
+        if type == 'video':
+            ID = PostsModel.insert_video(data)
+        else:
+            ID = PostsModel.insert(data)
+        # 结果
         if ID is False:
-            service_logger.log('插入失败'+data['url'])
+            service_logger.log('插入失败：'+data['url'])
             return False
 
         # 插入图片
-        if data['image'] != '':
-            image = ImportService.upload_image(data['image'], iscut=True, w=width, h=height)
+        if image != '':
             PostsModel.insert_image(image, ID, data['type'], data['url'])
 
         # 检查分类是否存在
