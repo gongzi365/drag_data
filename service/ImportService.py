@@ -7,6 +7,8 @@ from model.TermTaxonomyModel import TermTaxonomyModel
 from config.Config import Config
 from resizeimage import resizeimage
 from PIL import Image
+from utils.Helper import *
+from pyquery import PyQuery as pq
 
 import urllib2
 import requests
@@ -25,6 +27,32 @@ class ImportService():
             return True
 
         return False
+
+    @staticmethod
+    def get_douban_image(name, w=480, h=320):
+        image = ''
+        url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd='+name
+        html = get_url_html(url)
+
+        doc = pq(html)
+        tables = doc('.c-container').items()
+        i = 0
+        for tb in tables:
+            i = i+1
+            txt = pq(tb)
+            title = txt.text()
+            imgObj = txt('img')
+            if name in title:
+                image = imgObj.attr('src')
+                break
+            if i > 8:
+                break
+
+        if image != '':
+            service_logger.log('百度搜索图片：'+image)
+            image = ImportService.upload_image(image, iscut=False, w=w, h=h)
+
+        return image
 
     @staticmethod
     def upload_image(image, iscut=False, w=300, h=200):
@@ -67,8 +95,13 @@ class ImportService():
             # 存储裁剪图
             with open(oldfile, 'rb') as f:
                 with Image.open(f) as img:
-                    cover = resizeimage.resize_cover(img, [w, h])
-                    cover.save(newfile, img.format)
+                    print img.size
+                    if img.size[0] > w or img.size[1] > h:
+                        cover = resizeimage.resize_cover(img, [w, h])
+                        cover.save(newfile, img.format)
+                    else:
+                         with open(newfile, 'wb') as fo:
+                             fo.write(cat_img)
         else:
             # 存储新的图片
             with open(newfile, 'wb') as f:
@@ -106,7 +139,15 @@ class ImportService():
             if type == 'video' and image == '':
                 # image = '2018/11/carousel_bg-e1542977701970.png'
                 service_logger.log('图片下载失败：'+data['image'])
-                return False
+                # 豆瓣网站下载图片
+                image = ImportService.get_douban_image(data['others']['name'], w=width, h=height)
+        else:
+            # 豆瓣网站下载图片
+            image = ImportService.get_douban_image(data['others']['name'], w=width, h=height)
+
+        if type == 'video' and image == '':
+            service_logger.log('video图片无法下载：'+data['image'])
+            return False
 
         # 插入post数据
         if type == 'video':

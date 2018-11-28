@@ -8,8 +8,11 @@ sys.setdefaultencoding('utf-8')
 
 if __name__ == '__main__':
     lists = [
+        'http://www.ygdy8.net/html/gndy/rihan/index.html',
+        'http://www.ygdy8.net/html/gndy/oumei/index.html',
         'http://www.ygdy8.net/html/gndy/china/index.html',
-        'http://www.ygdy8.net/html/gndy/oumei/index.html'
+        'http://www.ygdy8.net/html/gndy/jddy/index.html',
+        'http://www.ygdy8.net/html/gndy/dyzz/index.html'
     ]
 
     if len(lists) > 0:
