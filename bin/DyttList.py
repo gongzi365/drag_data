@@ -42,6 +42,9 @@ def dytt_list(url=''):
                 item['link'] = 'http://www.ygdy8.net'+pq(link).attr('href')
 
         data.append(item)
+
+    # 记录日志
+    service_logger.warn(data=data)
     return data
 
 def dytt_detail(url, links):
@@ -77,7 +80,8 @@ def dytt_detail(url, links):
                 page.set_category(cate)
 
                 data = page.get_content(flag=False)
-                print json.dumps(data)
+                # 记录日志
+                service_logger.warn(data=data)
                 if data['send_time'] == '' or data['title'] == '':
                     continue
 

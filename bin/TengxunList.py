@@ -31,7 +31,8 @@ def tengxun_list(url=''):
                 'image': vo['img']
             }
             data.append(dt)
-
+    # 记录日志
+    service_logger.warn(data=data)
     return data
 
 def tengxun_detail(url, links):
@@ -72,7 +73,8 @@ def tengxun_detail(url, links):
                 if data['image'] != '' and data['image'][0:2] == '//':
                     data['image'] = 'http:' + data['image']
 
-                print json.dumps(data)
+                # 记录日志
+                service_logger.warn(data=data)
                 if data['send_time'] == '' or data['title'] == '':
                     continue
 
