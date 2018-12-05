@@ -1,10 +1,10 @@
 CREATE TABLE `wp_lottery` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` int(1) DEFAULT '0',
-  `sn` varchar(32) DEFAULT '',
-  `result` varchar(32) DEFAULT '',
-  `real` varchar(32) DEFAULT '',
-  `yuce` varchar(32) DEFAULT '',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `type` int(1) DEFAULT '0' COMMENT '类型',
+  `phase` int(11) DEFAULT '0' COMMENT '第几期',
+  `result` varchar(32) DEFAULT '' COMMENT '结果',
+  `real` varchar(32) DEFAULT '' COMMENT '真实预期',
+  `yuce` varchar(32) DEFAULT '' COMMENT '预测值',
   `pram1` int(11) DEFAULT '0',
   `pram2` int(11) DEFAULT '0',
   `pram3` int(11) DEFAULT '0',
@@ -17,7 +17,7 @@ CREATE TABLE `wp_lottery` (
   `pram10` int(11) DEFAULT '0',
   `ctime` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8
 
 
 insert into `wp_lottery` (`id`, `type`, `sn`, `result`, `real`, `yuce`, `pram1`, `pram2`, `pram3`, `pram4`, `pram5`, `pram6`, `pram7`, `pram8`, `pram9`, `pram10`, `ctime`) values('1','0','718305','1,9,5,8,4,2,7,3,10,6','','','1','9','5','8','4','2','7','3','10','6','0');
