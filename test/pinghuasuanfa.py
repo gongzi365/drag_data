@@ -20,7 +20,7 @@ def main():
     alpha = .70
     # pre_year = np.array([2016, 2017])
     # data_path = 'data1.txt'  # 设置数据路径
-    pre_year = np.array([78320])#将需要预测的两年存入numpy的array对象里
+    pre_year = np.array([718324])#将需要预测的两年存入numpy的array对象里
     # data_path = 'data2.txt'  # 设置数据路径
     # data = np.loadtxt(data_path)#用numpy读取数据
     data = np.array([[718305,1,1],[718306,2,8],[718307,3,9],[718308,4,5],[718309,5,1],[718310,6,3],[718311,7,3],[718312,8,9],[718313,9,4],[718314,10,6],[718315,11,9],[718316,12,2],[718317,13,5],[718318,14,4],[718319,15,3],[718320,16,5],[718321,17,3],[718322,18,9],[718323,19,6]])
@@ -72,27 +72,37 @@ def main():
     items.append(['#开奖期数#','#开奖号码#','#预测值#','#预测号码#','#是否中#'])
     k = 0
     for v in newyear:
-        print [str(v), str(number[k]), '--', '--', '--']
-        # items.append([str(v), str(number[k]), '--', '--', '--'])
-        # if k>3:
-        #     real = str(predouble[k])+','+str(pretriple[k])
-        #     lottery = []
-        #     if s_pre_double[k]<=4:
-        #         lottery = [1,2,3,4,5]
-        #     elif s_pre_double[k]>=6:
-        #         lottery = [5,6,7,8,9,10]
-        #     else:
-        #         lottery = [2,3,4,5,6,7]
-        #
-        #     if number[k] in lottery:
-        #         resu = '中'
-        #     else:
-        #         resu = '否'
-        #
-        #     items.append([str(v), str(number[k]), real, lottery.split(','), resu])
+        open = '9'
+        if k < len(number):
+             open = str(number[k])
+
+        # print [k,v]
+        # print [str(v), str(open), '--', '--', '--']
+
+        if k>3:
+            real = str(round(predouble[k],2))+'#'+str(round(pretriple[k],2))
+            lottery = []
+            if s_pre_double[k]<=4:
+                lottery = ['1','2','3','4','5']
+            elif s_pre_double[k]>=6:
+                lottery = ['5','6','7','8','9','10']
+            else:
+                lottery = ['2','3','4','5','6','7']
+
+            if open in lottery:
+                resu = '中'
+            else:
+                resu = '否'
+            # print [open, lottery]
+            # print '-'.join(lottery)
+            items.append([str(v), str(open), real, '_'.join(lottery), resu])
+        else:
+            items.append([str(v), str(open), '--', '--', '--'])
         k = k+1
 
     print items
+    for vo in items:
+        print '   '.join(vo)
 
 
 

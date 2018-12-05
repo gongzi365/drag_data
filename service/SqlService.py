@@ -13,6 +13,9 @@ class SqlService():
     TERMS_LIST = 'SELECT * FROM wp_terms t LEFT JOIN wp_term_taxonomy tt ON t.term_id=tt.term_id WHERE t.name="%s" AND tt.taxonomy="%s"'
     TERM_TAXONOMY = 'select * from wp_term_taxonomy where term_id = %s and taxonomy = "%s"'
 
+    LOTTERY_LIST = 'select * from wp_lottery where %s order by phase asc limit %s'
+
+    UPDATE_lOTTERY = 'update wp_lottery set real="%s", yuce="%s"  where id = %s '
     UPDATE_TERM_TAXONOMY = 'update wp_term_taxonomy set count=count+1 where term_taxonomy_id = %s '
 
 
