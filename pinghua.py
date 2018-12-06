@@ -88,7 +88,7 @@ def get_yuce(phase):
     return [new, real, lottery]
 if __name__ == '__main__':
 
-    list = LotteryModel.get_list('period<=718503', 30)
+    list = LotteryModel.get_list('period<=718503', 50)
     for vo in list:
         resu = get_yuce(vo['period'])
         print resu
