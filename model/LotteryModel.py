@@ -19,9 +19,9 @@ class LotteryModel():
 
 
     @staticmethod
-    def update_lottery(real, yuce):
+    def update_lottery(where, real, yuce):
 
-        sql = SqlService.sql(SqlService.UPDATE_lOTTERY, real, yuce)
+        sql = SqlService.sql(SqlService.UPDATE_lOTTERY, real, yuce, where)
         res = SqlService.api(sql, 'execute')
         if res is not None:
             return True

@@ -18,16 +18,20 @@ def exponential_smoothing(alpha, s):
 
 def get_yuce(phase):
     new = phase+1
-    list = LotteryModel.get_list('phase<'+str(new), 20)
-    arrs = []
-    i = 0
+    limit = 20
+    list = LotteryModel.get_list('period<'+str(new), limit)
+    olds = []
+    i = limit
     for vo in list:
-        i = i+1
-        arrs.append([
-            vo['phase'], i, vo['pram1']
+        olds.append([
+            int(vo['period']), i, int(vo['pram1'])
         ])
-    print [new, arrs]
-    quit(1111)
+        i = i - 1
+
+    arrs = olds[::-1]
+    print '============================'+str(new)
+    # print olds
+    print arrs
 
     alpha = .70                # 设置alphe，即平滑系数
     pre_year = np.array([new]) # 将需要预测的两年存入numpy的array对象里
@@ -64,7 +68,7 @@ def get_yuce(phase):
 
     new_year = np.insert(year, len(year), values=pre_year, axis=0)
     output = np.array([new_year, s_pre_double, s_pre_triple])
-    print output
+    # print output
 
     newyear = new_year[0:]
     predouble = s_pre_double[0:]
@@ -73,17 +77,20 @@ def get_yuce(phase):
     k = len(newyear)
     real = str(round(predouble[k],2))+','+str(round(pretriple[k],2))
     if predouble[k]<=4:
-        lottery = ['1','2','3','4','5']
-    elif predouble[k]>=6:
+        lottery = ['1','2','3','4','5','6']
+    elif predouble[k]>=7:
         lottery = ['5','6','7','8','9','10']
+    elif predouble[k]>5 and pretriple[k]>4:
+        lottery = ['3','4','5','6','7','8']
     else:
-        lottery = ['2','3','4','5','6','7']
-    print [k, real, lottery]
+        lottery = ['1','2','3','4','5','6','7']
 
     return [new, real, lottery]
 if __name__ == '__main__':
 
-    list = LotteryModel.get_list('phase<=718504', 30)
+    list = LotteryModel.get_list('period<=718503', 30)
     for vo in list:
-        resu = get_yuce(vo['phase'])
-        break
+        resu = get_yuce(vo['period'])
+        print resu
+        LotteryModel.update_lottery('period='+str(resu[0]), real=resu[1], yuce=','.join(resu[2]))
+        # break
