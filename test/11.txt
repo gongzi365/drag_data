@@ -17,7 +17,8 @@ CREATE TABLE `wp_lottery` (
   `pram10` int(11) DEFAULT '0',
   `ctime` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+ ALTER TABLE `wp_test`.`wp_lottery` ADD COLUMN `is_sure` TINYINT(1) DEFAULT 0 NULL AFTER `yuce`;
 
 
 insert into `wp_lottery` (`id`, `type`, `period`, `result`, `reals`, `yuce`, `pram1`, `pram2`, `pram3`, `pram4`, `pram5`, `pram6`, `pram7`, `pram8`, `pram9`, `pram10`, `ctime`) values('1','0','718305','1,9,5,8,4,2,7,3,10,6','','','1','9','5','8','4','2','7','3','10','6','0');

@@ -15,7 +15,8 @@ class SqlService():
 
     LOTTERY_LIST = 'select * from wp_lottery where %s order by id desc limit %s'
 
-    UPDATE_lOTTERY = 'update wp_lottery set reals="%s", yuce="%s"  where %s '
+    UPDATE_lOTTERY = 'update wp_lottery set reals="%s", yuce="%s" where %s '
+    UPDATE_RESULT = 'update wp_lottery set is_sure=1 where FIND_IN_SET(%s, yuce) and %s '
     UPDATE_TERM_TAXONOMY = 'update wp_term_taxonomy set count=count+1 where term_taxonomy_id = %s '
 
 

@@ -28,6 +28,16 @@ class LotteryModel():
 
         return False
 
+    @staticmethod
+    def update_result(where, ckey):
+
+        sql = SqlService.sql(SqlService.UPDATE_RESULT, ckey, where)
+        res = SqlService.api(sql, 'execute')
+        if res is not None:
+            return True
+
+        return False
+
 
 
 

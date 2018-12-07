@@ -16,15 +16,15 @@ def exponential_smoothing(alpha, s):
         s2[i] = alpha*s[i]+(1-alpha)*s2[i-1]
     return s2
 
-def get_yuce(phase):
-    new = phase+1
+def get_yuce(period, ckey='pram10'):
+    new = period+1
     limit = 20
     list = LotteryModel.get_list('period<'+str(new), limit)
     olds = []
     i = limit
     for vo in list:
         olds.append([
-            int(vo['period']), i, int(vo['pram1'])
+            int(vo['period']), i, int(vo[ckey])
         ])
         i = i - 1
 
@@ -88,9 +88,17 @@ def get_yuce(phase):
     return [new, real, lottery]
 if __name__ == '__main__':
 
+    ckey = 'pram10'
+    limit = 50
     list = LotteryModel.get_list('period<=718503', 50)
     for vo in list:
-        resu = get_yuce(vo['period'])
+        resu = get_yuce(vo['period'], ckey)
         print resu
+
+        # 保存数据
         LotteryModel.update_lottery('period='+str(resu[0]), real=resu[1], yuce=','.join(resu[2]))
+
+        # 更新是否中奖
+        LotteryModel.update_result('period=' + str(resu[0]), ckey)
+
         # break
