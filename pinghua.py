@@ -19,12 +19,26 @@ def exponential_smoothing(alpha, s):
 def get_yuce(period, ckey='pram10'):
     new = period+1
     limit = 20
+    last1 = 0
+    last3 = 3
+    last4 = []
+
     list = LotteryModel.get_list('period<'+str(new), limit)
     olds = []
     i = limit
     for vo in list:
+        value = str(vo[ckey])
+        # if i > limit - 3:
+        #     if value not in last3:
+        #         last3.append(value)
+        if i > limit-4:
+            if value not in last4:
+                last4.append(value)
+            if i == limit:
+                last1 = value
+
         olds.append([
-            int(vo['period']), i, int(vo[ckey])
+            int(vo['period']), i, int(value)
         ])
         i = i - 1
 
@@ -77,20 +91,38 @@ def get_yuce(period, ckey='pram10'):
     k = len(newyear)
     real = str(round(predouble[k],2))+','+str(round(pretriple[k],2))
     if predouble[k]<=4:
-        lottery = ['1','2','3','4','5','6']
+        lottery = ['1','2','3','4']
     elif predouble[k]>=7:
-        lottery = ['5','6','7','8','9','10']
-    elif predouble[k]>5 and pretriple[k]>4:
-        lottery = ['3','4','5','6','7','8']
+        lottery = ['7','8','9','10']
+    elif predouble[k]>5:
+        if pretriple[k] > 5:
+            lottery = ['5','6','7','8','9','10']
+        else:
+            lottery = ['1', '2', '3', '4', '5', '6']
     else:
-        lottery = ['1','2','3','4','5','6','7']
+        lottery = ['2','3','4','5','6','7']
+
+    if (predouble[k]<=4 or predouble[k]>=7):
+        print '****************'
+        print
+        if len(last4) < 4:
+            print last4
+            for v in last4:
+                if v not in lottery:
+                    lottery.append(v)
+        else:
+            news = []
+            for v in lottery:
+                if v not in last3:
+                    news.append(v)
+            lottery = news
 
     return [new, real, lottery]
 if __name__ == '__main__':
 
     ckey = 'pram10'
-    limit = 50
-    list = LotteryModel.get_list('period<=718503', 50)
+    limit = 100
+    list = LotteryModel.get_list('period<=718503', limit)
     for vo in list:
         resu = get_yuce(vo['period'], ckey)
         print resu
