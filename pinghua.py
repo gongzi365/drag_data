@@ -20,7 +20,7 @@ def get_yuce(period, ckey='pram10'):
     new = period+1
     limit = 20
     last1 = 0
-    last3 = 3
+    last3 = []
     last4 = []
 
     list = LotteryModel.get_list('period<'+str(new), limit)
@@ -28,9 +28,9 @@ def get_yuce(period, ckey='pram10'):
     i = limit
     for vo in list:
         value = str(vo[ckey])
-        # if i > limit - 3:
-        #     if value not in last3:
-        #         last3.append(value)
+        if i > limit - 3:
+            if value not in last3:
+                last3.append(value)
         if i > limit-4:
             if value not in last4:
                 last4.append(value)
@@ -104,24 +104,23 @@ def get_yuce(period, ckey='pram10'):
 
     if (predouble[k]<=4 or predouble[k]>=7):
         print '****************'
-        print
+        print last4
         if len(last4) < 4:
             print last4
             for v in last4:
                 if v not in lottery:
                     lottery.append(v)
         else:
-            news = []
             for v in lottery:
                 if v not in last3:
-                    news.append(v)
-            lottery = news
+                    last3.append(v)
+            lottery = last3
 
     return [new, real, lottery]
 if __name__ == '__main__':
 
     ckey = 'pram10'
-    limit = 100
+    limit = 50
     list = LotteryModel.get_list('period<=718503', limit)
     for vo in list:
         resu = get_yuce(vo['period'], ckey)
