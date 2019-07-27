@@ -72,7 +72,7 @@ class Toutiao(Drag):
                 content = str.replace('content: ', '')
                 content = content[1:-1]
                 content = self.struncode(content)
-
+                print(content)
         return content
 
     # 标签
@@ -117,7 +117,7 @@ class Toutiao(Drag):
             '\u003C': '<',
             '\u003E': '>',
             '\u002F': '/',
-            '\"': '"'
+            '\\"': '"'
         }
 
         for ke in maps:
