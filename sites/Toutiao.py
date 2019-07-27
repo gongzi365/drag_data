@@ -116,7 +116,8 @@ class Toutiao(Drag):
         maps = {
             '\u003C': '<',
             '\u003E': '>',
-            '\u002F': '/'
+            '\u002F': '/',
+            '\"': '"'
         }
 
         for ke in maps:
