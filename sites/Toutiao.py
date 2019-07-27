@@ -65,11 +65,13 @@ class Toutiao(Drag):
         res = re.findall("articleInfo: {.*?}", self.html, re.S)
         # print res
         if len(res) > 0:
-            resu = re.search("content: '(.*?)'", res[0], flags=0)
+            resu = re.search("content: '\"(.*?)\"'", res[0], flags=0)
             if resu:
                 str = resu.group()
                 str = str.replace("'", '')
-                content = str.replace("content: ", '')
+                content = str.replace('content: ', '')
+                content = content[1:-1]
+                content = self.struncode(content)
 
         return content
 
@@ -110,7 +112,17 @@ class Toutiao(Drag):
 
         return []
 
+    def struncode(self, content):
+        maps = {
+            '\u003C': '<',
+            '\u003E': '>',
+            '\u002F': '/'
+        }
 
+        for ke in maps:
+            content = content.replace(ke, maps[ke])
+
+        return content
 
 
 
