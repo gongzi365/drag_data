@@ -55,6 +55,7 @@ class Toutiao(Drag):
             if resu:
                 str = resu.group()
                 str = str.replace("'", '')
+                str = str.replace('"', '')
                 title = str.replace("title: ", '')
 
         return title
